@@ -1,4 +1,4 @@
-class animal{
+class Animal{
     constructor(especie,edad,color){
         this.especie = especie;
         this.edad = edad;
@@ -9,15 +9,29 @@ class animal{
     verInformacion = () => {
         document.write(this.informacion);
     }
-    verInfo(){
-        document.write(this.informacion);
+}
+
+class Perro extends Animal{
+    constructor(especie,edad,color,raza){
+        super(especie,edad,color);
+        this.raza = null;
+    }    
+
+    static ladrar = () => alert("Guau Guau");
+
+    set setRaza(nuevaRaza){
+        this.raza = nuevaRaza;
+    }
+
+    get getRaza(){
+        return this.raza;
     }
 }
 
-let buho = new animal("Buho",5,"Negro");
-let gato = new animal("Gato",1,"Blanco");
-let perro = new animal("Perro",2,"Café");
+perro1 = new Perro("perro",5,"Blanco");
+perro1.verInformacion();
 
-buho.verInformacion();
-gato.verInformacion();
-perro.verInformacion();
+perro1.setRaza = "Pitbull";
+document.write(`Mi raza es ${perro1.getRaza}<br>`);
+perro1.setRaza = "Pastor Alemán";
+document.write(`Mi raza es ${perro1.getRaza}<br>`);
